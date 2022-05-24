@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Task
 {
@@ -7,6 +7,9 @@ namespace Task
         private int rowCount;
         private int columnCount;
         private int[,] matr;
+        public enum startAngle { 
+            Right, Down
+        }
         public Matrix() { }
         public int RowCount
         {
@@ -32,6 +35,19 @@ namespace Task
             set { matr[i, j] = value; }
         }
 
+        public void KeyboardInput()
+        {
+           
+              for(int i = 0; i < rowCount; i++)
+              {
+                for( int j = 0; j < columnCount; j++)
+                {
+                    matr[i, j] = Convert.ToInt32(Console.ReadLine());
+                }
+              }
+                
+            
+        }
         public void trianglePattern()
         {
             int s = rowCount / 2;
@@ -101,51 +117,163 @@ namespace Task
 
             }
         }
-
-        public void diagonalPattern()
+        
+        public void diagonalPattern(startAngle angle)
         {
-            int i = 0, j = 0;         
-            bool isUp = true;
             int counter = 1;
             
-            for (int k = 0; k < columnCount * columnCount;)
+            int counter2 = 1;
+            if (angle == startAngle.Right)
             {
-               
-                if (isUp)
+                for (int line = 0; line < rowCount; line++)
                 {
-                    for (; i >= 0 && j < columnCount; j++, i--)
+                    if (line % 2 == 0)
                     {
-                       matr[i, j]=counter++;
-                        k++;
+                        int ii = line;
+                        int jj = 0;
+                        for (int j = 0; j < line+1 ; j++)
+                        {
+                            matr[ii, jj] = counter++;
+                            matr[rowCount - 1 - ii, rowCount - 1 - jj] = rowCount* rowCount+2-counter;
+                            jj++;
+                            ii--;
+                            
+                        }
                     }
-                    if (i < 0 && j <= columnCount - 1)
-                        i = 0;
-                    if (j == columnCount)
+                    else
                     {
-                        i = i + 2;
-                        j--;
-                    }
-                }
-                else
-                {
-                    for (; j >= 0 && i < columnCount; i++, j--)
-                    {
-                        matr[i, j] = counter++;
-                        k++;
+                        int ii = 0;
+                        int jj = line;
+                        for (int j = 0; j < line+1 ; j++)
+                        {
+                            matr[ii, jj] = counter++;
+                            matr[rowCount - 1 -  ii, rowCount - 1 - jj] = rowCount * rowCount + 2 - counter;
+                            jj--;
+                            ii++;
+
+                        }
                     }
 
-                    if (j < 0 && i <= columnCount - 1)
-                        j = 0;
-                    if (i == columnCount)
+
+                }
+            }
+            else if (angle == startAngle.Down)
+            {
+                for (int line = 0; line < rowCount; line++)
+                {
+                    if (line % 2 == 0)
                     {
-                        j = j + 2;
-                        i--;
+                        int ii = 0;
+                        int jj = line;
+                        for (int j = 0; j < line + 1; j++)
+                        {
+                            matr[ii, jj] = counter++;
+                            matr[rowCount - 1 - ii, rowCount - 1 - jj] = rowCount * rowCount + 2 - counter;
+
+                            jj--;
+                            ii++;
+
+                        }
+
                     }
-                }            
-                isUp = !isUp;
+                    else
+                    {
+                        int ii = line;
+                        int jj = 0;
+                        for (int j = 0; j < line + 1; j++)
+                        {
+                            matr[ii, jj] = counter++;
+                            matr[rowCount - 1 - ii, rowCount - 1 - jj] = rowCount * rowCount + 2 - counter;
+                            jj++;
+                            ii--;
+
+                        }
+                    }
+
+
+                }
+            }
+            
+            
+        }
+        public void diagonalPattern2(startAngle angle)
+        {
+            int counter = 1;
+
+            int counter2 = 1;
+            if (angle == startAngle.Right)
+            {
+                for (int line = 0; line < rowCount; line++)
+                {
+                    if (line % 2 == 0)
+                    {
+                        int ii = line;
+                        int jj = 0;
+                        for (int j = 0; j < line + 1; j++)
+                        {
+                            matr[ii - jj, jj] = counter;
+                            matr[rowCount - 1 - jj, rowCount - 1 - line + jj] = counter2 - +counter;
+                            jj++;
+                            counter++;
+                        }
+
+
+
+
+                    }
+                    else
+                    {
+                        int ii = 0;
+                        int jj = line;
+                        for (int j = 0; j < line + 1; j++)
+                        {
+                            matr[ii, jj - ii] = counter++;
+                            matr[rowCount - 1 - line + ii, rowCount - 1 - ii] = counter2++;
+
+
+                            ii++;
+
+                        }
+                    }
+
+
+                }
+            }
+            else if (angle == startAngle.Down)
+            {
+                for (int line = 0; line < rowCount; line++)
+                {
+                    if (line % 2 == 0)
+                    {
+                        int ii = 0;
+                        int jj = line;
+                        for (int j = 0; j < line + 1; j++)
+                        {
+                            matr[ii, jj - ii] = counter++;
+                            matr[rowCount - 1 - line + ii, rowCount - 1 - ii] = counter2++;
+                            ii++;
+
+                        }
+
+                    }
+                    else
+                    {
+                        int ii = line;
+                        int jj = 0;
+                        for (int j = 0; j < line + 1; j++)
+                        {
+                            matr[ii - jj, jj] = counter++;
+                            matr[rowCount - 1 - jj, rowCount - 1 - line + jj] = counter2++;
+                            jj++;
+
+                        }
+                    }
+
+
+                }
             }
         }
-        public void spiralPattern()
+            public void spiralPattern()
         {
 
             int counter = 1;
@@ -188,8 +316,37 @@ namespace Task
                 }
             }
         }
-    
-        
+
+        public void MaxSquare()
+        {
+            int max = 0;
+            int maxTmp = 0;
+            int indexMaxj = 0;
+            int indexMaxi = 0;
+            for (int i = 0; i < rowCount; i++)
+            {
+                for(int j=1; j<columnCount; j++)
+                {
+                    if(matr[i, j-1] == matr[i, j])
+                    {
+                        maxTmp++;
+                        if (maxTmp > max)
+                        {
+                            max = maxTmp;
+                            indexMaxj = j;
+                            indexMaxi = i;
+                        }
+
+                    }
+                    else
+                    {
+                        maxTmp = 0;
+                    }
+                }
+            }
+            Console.WriteLine($"{max+1}, {indexMaxi},{indexMaxj}");
+        }
+
 
         public void MatrixPrint()
         {
@@ -197,7 +354,7 @@ namespace Task
             {
                 for (int j = 0; j < columnCount; j++)
                 {
-                    Console.Write(matr[i, j] + " ");
+                    Console.Write(matr[i, j]+"\t");
                 }
                 Console.WriteLine();
             }
@@ -217,9 +374,12 @@ namespace Task
             Console.WriteLine("Введіть кількість стовпців матриці ");
             int columnCount = Convert.ToInt32(Console.ReadLine());
             Matrix matrix = new Matrix(rowCount, columnCount);
+            matrix.KeyboardInput();
+            matrix.MatrixPrint();
+            matrix.MaxSquare();
             matrix.trianglePattern();
             matrix.MatrixPrint();
-            matrix.diagonalPattern();
+            matrix.diagonalPattern(Matrix.startAngle.Down);
             matrix.MatrixPrint();
             matrix.snakePattern();
             matrix.MatrixPrint();
