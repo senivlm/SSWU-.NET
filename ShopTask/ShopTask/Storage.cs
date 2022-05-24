@@ -9,6 +9,7 @@ namespace ShopTask
     public class Storage
     {
         protected List<Product> products { get; set; } = new List<Product>();
+        //У таких випадках треба надіятись на конструктор за замовчуванням
         public Storage()
         {
 
@@ -21,7 +22,7 @@ namespace ShopTask
             }
         }
         public Product this[int i]
-        {
+        {//Неконтрольований індекс
             get
             {
                 return products[i];
