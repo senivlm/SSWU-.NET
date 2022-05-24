@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\1\\source\\repos\\ShopTask\\ShopTask\\ShopTask.csproj",
+      "projectUniqueName": "C:\\Users\\1\\Source\\Repos\\SSWU-.NET\\ShopTask\\ShopTask\\ShopTask.csproj",
       "projectName": "ShopTask",
-      "projectPath": "C:\\Users\\1\\source\\repos\\ShopTask\\ShopTask\\ShopTask.csproj",
+      "projectPath": "C:\\Users\\1\\Source\\Repos\\SSWU-.NET\\ShopTask\\ShopTask\\ShopTask.csproj",
       "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\1\\source\\repos\\ShopTask\\ShopTask\\obj\\",
+      "outputPath": "C:\\Users\\1\\Source\\Repos\\SSWU-.NET\\ShopTask\\ShopTask\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

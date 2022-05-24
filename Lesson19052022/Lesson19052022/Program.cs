@@ -6,8 +6,8 @@ Console.WriteLine(vector.ToString());
 //vector.Reverse();
 int[] sub =vector.MaxSubVecror();
 
-//Console.WriteLine(vector.ToString());
-////Console.WriteLine(vector.IsPalindrom(3443));
-//Console.WriteLine(vector.IsPalindrom());
-//int[] arr = new int[] { 3, 4, 5, 6, 7 };
-//Array.Reverse(arr);
+Console.WriteLine(vector.ToString());
+Console.WriteLine(vector.IsPalindrom(3443));
+Console.WriteLine(vector.IsPalindrom());
+int[] arr = new int[] { 3, 4, 5, 6, 7 };
+Array.Reverse(arr);
