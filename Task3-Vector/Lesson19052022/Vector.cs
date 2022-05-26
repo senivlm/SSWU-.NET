@@ -1,4 +1,5 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,30 +42,15 @@ namespace Lesson19052022
   
         public void ShuffeInit()
         {
-           
-
             Random random = new Random();
-            int x;
             for (int i = 0; i < array.Length; i++)
             {
-                while (array[i] == 0)
+                int number = random.Next(0, array.Length + 1);
+                while (Array.IndexOf(array, number) != -1)
                 {
-                    x = random.Next(1, array.Length + 1);
-                    bool isExist = false;
-                    for (int j = 0; j < i; j++)
-                    {
-                        if (x == array[j])
-                        {
-                            isExist = true;
-                            break;
-                        }
-                    }
-                    if (!isExist)
-                    {
-                        array[i] = x;
-                        break;
-                    }
+                    number = random.Next(0, array.Length + 1);
                 }
+                array[i] = number;
             }
         }
         public int this[int index]
@@ -210,6 +196,71 @@ namespace Lesson19052022
             //{
             //    Console.WriteLine(subVector[i]);
             //}
+        }
+        public void QuickSort1(int L, int R)
+        {
+            
+            int B, tmp, i, j;
+            
+            B = array[(L + R) / 2];
+            i = L; j = R;
+            while (i <= j)
+            {
+                while (array[i] < B) i = i + 1;
+                while (array[j] > B) j = j - 1;
+                if (i <= j)
+                {
+                    tmp = array[i];
+                    array[i] = array[j];
+                    array[j] = tmp;
+                    i = i + 1;
+                    j = j - 1;
+                }
+            }
+            if (L < j) QuickSort1(L, j);
+            if (i < R) QuickSort1(i, R);
+        }
+        public void QuickSort2(int L, int R)
+        {
+            int B, tmp, i, j;
+            B = array[L];
+            i = L; j = R;
+            while (i <= j)
+            {
+                while (array[i] < B) i = i + 1;
+                while (array[j] > B) j = j - 1;
+                if (i <= j)
+                {
+                    tmp = array[i];
+                    array[i] = array[j];
+                    array[j] = tmp;
+                    i = i + 1;
+                    j = j - 1;
+                }
+            }
+            if (L < j) QuickSort1(L, j);
+            if (i < R) QuickSort1(i, R);
+        }
+        public void QuickSort3(int L, int R)
+        {
+            int B, tmp, i, j;
+            B = array[R];
+            i = L; j = R;
+            while (i <= j)
+            {
+                while (array[i] < B) i = i + 1;
+                while (array[j] > B) j = j - 1;
+                if (i <= j)
+                {
+                    tmp = array[i];
+                    array[i] = array[j];
+                    array[j] = tmp;
+                    i = i + 1;
+                    j = j - 1;
+                }
+            }
+            if (L < j) QuickSort1(L, j);
+            if (i < R) QuickSort1(i, R);
         }
     }
 }
