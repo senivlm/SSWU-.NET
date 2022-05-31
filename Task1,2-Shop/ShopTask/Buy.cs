@@ -25,7 +25,10 @@ namespace ShopTask
         }
         public Buy() 
         {
-
+            ProductsAmount = 0;
+            TotalPrice = 0;
+            TotalWeight = 0;
+            AllProducts = new List<Product>();
         }
         public void AddProduct(Product product)
         {
@@ -35,6 +38,24 @@ namespace ShopTask
                 TotalPrice += product.Price;
                 TotalWeight += product.Weight;
                 ProductsAmount += 1;
+            }
+        }
+        public Product GetProduct(int index)
+        {
+            if (index < AllProducts.Count && index >= 0)
+            {
+                return AllProducts[index];
+            }
+            throw new ArgumentException();
+        }
+
+        public Product this[int index]
+        {
+            get
+            {
+                if (index >= 0 && index < AllProducts.Count)
+                    return AllProducts[index];
+                throw new ArgumentException();
             }
         }
     }
