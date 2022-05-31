@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lesson19052022
 {
-    internal class Vector
+    public class Vector
     {
         private int[] array; 
         
@@ -262,5 +262,128 @@ namespace Lesson19052022
             if (L < j) QuickSort1(L, j);
             if (i < R) QuickSort1(i, R);
         }
+        public void Merge(int l, int q, int r)
+        {
+            int i = l;
+            int j = q+1;
+            int k = 0;
+            int[] temp = new int[r - l + 1];
+            while (i <=q && j <= r)
+            {
+                if (this.array[i] <= this.array[j])
+                {
+                    temp[k] = this.array[i];
+                    i++;
+                    k++;
+                }
+                else
+                {
+                    temp[k] = this.array[j];
+                    j++;
+                    k++;
+                }
+
+            }
+            while (i <= q)
+            {
+                temp[k] = array[i];
+                i++;
+                k++;
+            }
+            while (j <= r)
+            {
+                temp[k] = array[j];
+                k++;
+                j++;
+            }
+            for (i = l; i <= r; i += 1)
+            {
+                array[i] = temp[i - l];
+
+            }
+        }
+        public void SplitMerge(int start, int end)
+        {
+            if (start < end)
+            {
+                int mid = (start + end) / 2;
+                SplitMerge(start, mid);
+                SplitMerge( mid + 1, end);
+                Merge( start, mid, end);
+            }
+        }
+        void HeapFormation(int root, int bottom)
+        {
+            int indexMax;
+            bool flag = false; 
+                         
+            while ((root * 2 <= bottom) && (!flag))
+            {
+                if (root * 2 == bottom)
+                {
+                    indexMax = root * 2;
+                }
+                else if (array[root * 2] > array[root * 2 + 1])
+                {
+                    indexMax = root * 2;
+                }
+                else
+                {
+                    indexMax = root * 2 + 1;
+                }
+                if (array[root] < array[indexMax])
+                {
+                    int tmp = array[root]; // меняем их местами
+                    array[root] = array[indexMax];
+                    array[indexMax] = tmp;
+                    root = indexMax;
+                }
+                else
+                { 
+                    flag = true;
+                }
+            }
+        }
+       
+        public void HeapSort(int length)
+        {
+
+            for (int i = (length / 2); i >= 0; i--)
+            {
+                HeapFormation(i, length - 1);
+            }
+            for (int i = length - 1; i >= 1; i--)
+            {
+                int temp = array[0];
+                array[0] = array[i];
+                array[i] = temp;
+                HeapFormation(0, i - 1);
+            }
+        }
+        public async void ReadFromFileAsync(string filename)
+        {
+           
+            using (FileStream fstream = File.OpenRead(filename))
+            {
+                // выделяем массив для считывания данных из файла
+                byte[] buffer = new byte[fstream.Length];
+                // считываем данные
+                await fstream.ReadAsync(buffer, 0, buffer.Length);
+                // декодируем байты в строку
+                string textFromFile = Encoding.Default.GetString(buffer);
+                Console.WriteLine($"Текст из файла: {textFromFile}");
+                try
+                {
+                    array = textFromFile.Split(' ').Select(int.Parse).ToArray();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+              
+
+            }
+        }
+       
     }
 }
