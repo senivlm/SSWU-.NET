@@ -63,6 +63,7 @@ namespace Lesson19052022
                     throw new IndexOutOfRangeException();
                 }
                     }
+            //теж треба контролювати індекс
             set { array[index] = value; }
         }
         public override string ToString()
@@ -123,7 +124,7 @@ namespace Lesson19052022
                 return false;
             }
             else
-            {
+            {// можна на першому неспівпадінні переривати цикл
                 for (int i = 0; i < array.Length / 2; i++)
                 {
                     if (array[i] == array[array.Length-1 - i])
@@ -136,6 +137,7 @@ namespace Lesson19052022
             return false;
             
         }
+        // Для числа в іншому класі
         public bool IsPalindrom(int number)
         {
             int _number = 0;
@@ -186,6 +188,7 @@ namespace Lesson19052022
            
             int[] subVector=new int[max+1];
             //Console.WriteLine($"{max}, {indexMax},{indexMax - max}");
+            // Можна використати діапазон. так лаконічніше
             for (int i = 0; i < subVector.Length; i++)
             {
                 subVector[i] = array[indexMax - max + i];
@@ -197,6 +200,8 @@ namespace Lesson19052022
             //    Console.WriteLine(subVector[i]);
             //}
         }
+        //параметри мають бути з маленької
+        //Краще 1 метод з додатковим параметром  індекса опорного елемента
         public void QuickSort1(int L, int R)
         {
             
