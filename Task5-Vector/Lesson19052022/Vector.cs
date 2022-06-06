@@ -416,9 +416,10 @@ namespace Lesson19052022
             }
         }
         public void SplitMergeSortFromFile(string fileName)
-        {
+        {// Молодець. Добре зрозумів ідею
             SplitMerge(fileArray1, 0, fileArray1.Length-1);
             SplitMerge(fileArray2, 0, fileArray2.Length - 1);
+            // тут теж можна використовувати using
             StreamWriter writer = new StreamWriter(fileName);
             int i = 0, j = 0;
             
