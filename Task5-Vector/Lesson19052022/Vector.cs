@@ -366,11 +366,12 @@ namespace Lesson19052022
                 Merge(array, start, mid, end);
             }
         }
+        //Специфікатор private краще вказувазувати явно
         void HeapFormation(int root, int bottom)
         {
             int indexMax;
             bool flag = false; 
-                         
+             // умови краще поміняти місцями           
             while ((root * 2 <= bottom) && (!flag))
             {
                 if (root * 2 == bottom)
@@ -443,7 +444,7 @@ namespace Lesson19052022
         
         public async void ReadFromFileAsync(string filename)
         {
-           
+          // Треба цей код обговорити! Він маєкілька проблемних місць.
             using (FileStream fstream = File.OpenRead(filename))
             {
                 // выделяем массив для считывания данных из файла
