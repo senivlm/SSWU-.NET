@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Lesson19052022
 {
     public class Vector
-    {
+    {//Ваш номер 46
         private int[] array; 
         
             public Vector(int n)
