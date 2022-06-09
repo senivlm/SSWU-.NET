@@ -360,31 +360,34 @@ namespace Lesson19052022
                 HeapFormation(0, i - 1);
             }
         }
-        public async void ReadFromFileAsync(string filename)
-        {
-           
-            using (FileStream fstream = File.OpenRead(filename))
-            {
-                // выделяем массив для считывания данных из файла
-                byte[] buffer = new byte[fstream.Length];
-                // считываем данные
-                await fstream.ReadAsync(buffer, 0, buffer.Length);
-                // декодируем байты в строку
-                string textFromFile = Encoding.Default.GetString(buffer);
-                Console.WriteLine($"Текст из файла: {textFromFile}");
-                try
-                {
-                    array = textFromFile.Split(' ').Select(int.Parse).ToArray();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                }
-              
 
+        public static Vector operator +(Vector a, Vector b)
+        {
+            if (a.array.Length != b.array.Length) throw new Exception("вектори різної довжини додавати не можна");
+            else
+            {
+                Vector c = new Vector(a.array.Length);
+                for (int i = 0; i < a.array.Length; i++) c[i] = a[i] + b[i];
+                return c;
             }
         }
-       
-       
+        public static Vector operator +(Vector a, int b)
+        {
+            Vector c = new Vector(a.array.Length);
+            for (int i = 0; i < a.array.Length; i++) c[i] = a[i] + b;
+            return c;
+        }
+        public static bool operator >(Vector a, Vector b)
+        {
+            return a.array.Length > b.array.Length;
+        }
+        public static bool operator <(Vector a, Vector b)
+        {
+            return a.array.Length < b.array.Length;
+        }
+        public static explicit operator int(Vector a)
+        {
+            return a[0];
+        }
     }
 }

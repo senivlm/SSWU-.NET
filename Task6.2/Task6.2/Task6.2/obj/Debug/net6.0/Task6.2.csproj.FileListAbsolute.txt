@@ -1,0 +1,15 @@
+C:\Users\1\source\repos\SSWU-.NET\Task6.2\Task6.2\Task6.2\bin\Debug\net6.0\Task6.2.exe
+C:\Users\1\source\repos\SSWU-.NET\Task6.2\Task6.2\Task6.2\bin\Debug\net6.0\Task6.2.deps.json
+C:\Users\1\source\repos\SSWU-.NET\Task6.2\Task6.2\Task6.2\bin\Debug\net6.0\Task6.2.runtimeconfig.json
+C:\Users\1\source\repos\SSWU-.NET\Task6.2\Task6.2\Task6.2\bin\Debug\net6.0\Task6.2.dll
+C:\Users\1\source\repos\SSWU-.NET\Task6.2\Task6.2\Task6.2\bin\Debug\net6.0\Task6.2.pdb
+C:\Users\1\source\repos\SSWU-.NET\Task6.2\Task6.2\Task6.2\obj\Debug\net6.0\Task6.2.csproj.AssemblyReference.cache
+C:\Users\1\source\repos\SSWU-.NET\Task6.2\Task6.2\Task6.2\obj\Debug\net6.0\Task6.2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1\source\repos\SSWU-.NET\Task6.2\Task6.2\Task6.2\obj\Debug\net6.0\Task6.2.AssemblyInfoInputs.cache
+C:\Users\1\source\repos\SSWU-.NET\Task6.2\Task6.2\Task6.2\obj\Debug\net6.0\Task6.2.AssemblyInfo.cs
+C:\Users\1\source\repos\SSWU-.NET\Task6.2\Task6.2\Task6.2\obj\Debug\net6.0\Task6.2.csproj.CoreCompileInputs.cache
+C:\Users\1\source\repos\SSWU-.NET\Task6.2\Task6.2\Task6.2\obj\Debug\net6.0\Task6.2.dll
+C:\Users\1\source\repos\SSWU-.NET\Task6.2\Task6.2\Task6.2\obj\Debug\net6.0\refint\Task6.2.dll
+C:\Users\1\source\repos\SSWU-.NET\Task6.2\Task6.2\Task6.2\obj\Debug\net6.0\Task6.2.pdb
+C:\Users\1\source\repos\SSWU-.NET\Task6.2\Task6.2\Task6.2\obj\Debug\net6.0\Task6.2.genruntimeconfig.cache
+C:\Users\1\source\repos\SSWU-.NET\Task6.2\Task6.2\Task6.2\obj\Debug\net6.0\ref\Task6.2.dll
