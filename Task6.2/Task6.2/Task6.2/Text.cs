@@ -24,7 +24,7 @@ namespace Task6._2
         }
         public void WriteToFileSentences()
         {
-
+//Цікаво,  чи вмієте самі створювати та читати регулярні вирази
             string[] sentences = Regex.Split(inputText, @"(?<=[\.!\?]+['\""]*)\s+");
             using (StreamWriter writer = new StreamWriter("Result.txt"))
             {
