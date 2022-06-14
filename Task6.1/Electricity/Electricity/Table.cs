@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace Electricity
-{
+{// гарно відобразив! Постарався!
     public class Table
     {
         private const string TopLeftJoint = "┌";
