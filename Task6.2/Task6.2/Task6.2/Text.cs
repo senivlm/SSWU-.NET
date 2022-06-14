@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Task6._2
-{
+{//забули про винятки, а з ними треба вже постійно жити, хоча б мінімалістично!
     internal class Text
     {
         private string inputText;
