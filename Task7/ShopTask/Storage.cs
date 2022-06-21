@@ -70,6 +70,7 @@ namespace ShopTask
 
 
         }
+        //Валідацію винести в окремий клас
         public void ProductFromFile(StreamReader reader)
         {
             ErrorsWorker errorsWorker = new ErrorsWorker(@"errors_list.txt");
